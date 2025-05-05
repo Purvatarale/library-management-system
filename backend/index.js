@@ -1,7 +1,6 @@
-import express from "express";
-import { config } from "dotenv";
-import a from "@rsxt/debugger";
 import cors from "cors";
+import { config } from "dotenv";
+import express from "express";
 import { connectToDb } from "./config/db.js";
 import userRouter from "./route/user.route.js";
 
@@ -20,6 +19,9 @@ app.get("/", (req, res) => {
 
 app.use("/users", userRouter);
 
-app.listen(process.env.PORT, () => {
-  a.logger.info(`Server listening on port: ${process.env.PORT}`);
+// app.listen(process.env.PORT, () => {
+//   a.logger.info(`Server listening on port: ${process.env.PORT}`);
+// });
+app.listen(5000, "0.0.0.0", () => {
+  console.log("Server running on port 5000");
 });
