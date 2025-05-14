@@ -1,9 +1,9 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
-import User from "./User.js";
 import Book from "./Book.js";
+import User from "./User.js";
 
-const BorrowedBook = sequelize.define("BorrowedBook", {
+const IssuedBook = sequelize.define("IssuedBook", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -30,11 +30,11 @@ const BorrowedBook = sequelize.define("BorrowedBook", {
 });
 
 // one user can borrow many books
-User.hasMany(BorrowedBook, { foreignKey: "userId" });
-BorrowedBook.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(IssuedBook, { foreignKey: "userId" });
+IssuedBook.belongsTo(User, { foreignKey: "userId" });
 
 // one book can be borrowed by many users
-Book.hasMany(BorrowedBook, { foreignKey: "bookId" });
-BorrowedBook.belongsTo(Book, { foreignKey: "bookId" });
+Book.hasMany(IssuedBook, { foreignKey: "bookId" });
+IssuedBook.belongsTo(Book, { foreignKey: "bookId" });
 
-export default BorrowedBook;
+export default IssuedBook;

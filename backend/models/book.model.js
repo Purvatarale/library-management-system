@@ -15,15 +15,6 @@ const Book = sequelize.define("Book", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  publication: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  stock: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-  },
   genre: {
     type: DataTypes.STRING,
     allowNull: true,
